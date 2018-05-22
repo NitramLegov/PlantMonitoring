@@ -1,11 +1,10 @@
 __author__ = 'Martin'
-
+from __future__ import print_function
 
 
 
 import peewee
 from peewee import *
-
 
 db = MySQLDatabase('PLANTMONITORING',user="root",passwd="RaspberrySQL")
 
