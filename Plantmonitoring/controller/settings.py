@@ -14,6 +14,7 @@ def defaultValues():
     configuration.set('Server','#Use :: as host to listen to all IPv4 and IPv6 devices.')
     configuration.set('Server','PORT','8080')
     configuration.set('Server','HOST','127.0.0.1')
+<<<<<<< HEAD
     configuration.add_section('Initial Pins')
     configuration.set('Initial Pins','High', json.dumps([['Name1',23], ['Name2',24],['Name2',25],['Name2',8],['Name2',26]]))
     save()
@@ -23,6 +24,10 @@ def defaultValues():
 #PIN: 25 Value: 1
 #PIN: 8 Value: 1
 #PIN: 26 Value: 1
+=======
+    save()
+
+>>>>>>> 6e6a3c41d91dd7c4f30b18db71c28416f6ab0efb
 configuration = ConfigParser.SafeConfigParser(allow_no_value=True)
 
 try:
