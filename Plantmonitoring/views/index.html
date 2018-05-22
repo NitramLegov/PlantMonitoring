@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="../static/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/vendor/font-awesome.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+    </head>
+    <body>
+
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="">
+                            <a href="camera.html">Camera</a>
+                        </li>
+                        <li class="">
+                            <a href="ultraRemote.html">Complete Control</a>
+                        </li>
+                        <li class="">
+                            <a href="systemControl.html">System Control</a>
+                        </li>
+                        <li class="">
+                            <a href="static/documentation">Documentation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <iframe src="" name="toDisplay" hidden="true"></iframe>
+            <br>
+
+            <div class="">
+                <div class="row col-md-12">
+                    <form id="forward" method="POST" action="http://10.0.0.1/motor" target="toDisplay">
+                        <input type="text" name="motor1" value="100" class="invisible" hidden="true">
+                        <input type="text" name="motor2" value="100" class="invisible" hidden="true">
+                        <input type="submit" name="nothing" value="Forward" class="btn btn-default center-block">
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <form id="left" method="POST" action="http://10.0.0.1/motor" class="col-xs-6 col-sm-6 col-md-6 center-block" target="toDisplay">
+                            <input type="text" name="motor1" value="50" class="invisible" hidden="true">
+                            <input type="text" name="motor2" value="-100" class="invisible" hidden="true">
+                            <input type="submit" name="nothing" value="Left" class="btn btn-default center-block">
+                        </form>
+                        <form id="right" name="right" method="POST" action="http://10.0.0.1/motor" class="col-xs-6 col-sm-6 col-md-6" target="toDisplay">
+                            <input type="text" name="motor1" value="-100" class="invisible" hidden="true">
+                            <input type="text" name="motor2" value="50" class="invisible" hidden="true">
+                            <input type="submit" name="nothing" value="Rigth" class="btn btn-default center-block">
+                        </form>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <form id="back" method="POST" action="http://10.0.0.1/motor" class="" target="toDisplay">
+                        <input type="text" name="motor1" value="-100" class="invisible" hidden="true">
+                        <input type="text" name="motor2" value="-100" class="invisible" hidden="true">
+                        <input type="submit" name="nothing" value="Back" class="btn btn-default center-block">
+                    </form>
+                </div>
+                <div class="row col-md-12">
+                    <br>
+                    <form id="stop" method="POST" action="http://10.0.0.1/motor" target="toDisplay">
+                        <input type="text" name="motor1" value="0" class="invisible" hidden="true">
+                        <input type="text" name="motor2" value="0" class="invisible" hidden="true">
+                        <input type="submit" name="nothing" value="Stop" class="btn btn-danger center-block">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../static/vendor/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../static/vendor/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            var host = 'http://' + window.location.host + '/api/motor';
+            document
+                .getElementById("forward")
+                .action = host;
+            document
+                .getElementById("left")
+                .action = host;
+            document
+                .getElementById("right")
+                .action = host;
+            document
+                .getElementById("back")
+                .action = host;
+            document
+                .getElementById("stop")
+                .action = host;
+        </script>
+    </body>
+</html>
