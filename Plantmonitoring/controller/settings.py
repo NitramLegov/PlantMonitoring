@@ -16,6 +16,9 @@ def defaultValues():
     configuration.set('Server','HOST','127.0.0.1')
     configuration.add_section('Initial Pins')
     configuration.set('Initial Pins','High', json.dumps([['Name1',23], ['Name2',24],['Name2',25],['Name2',8],['Name2',26]]))
+    configuration.add_section('General Setup')
+    configuration.set('General Setup','MCP_Relais', '0x24')
+    configuration.set('General Setup','MCP_Sensor_Activation', '0x20')
     save()
 #Default Values
 #PIN: 23 Value: 1

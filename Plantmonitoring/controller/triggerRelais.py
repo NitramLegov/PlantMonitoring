@@ -1,6 +1,7 @@
 from __future__ import print_function
 import time
 import datetime
+import controller.settings as settings
 
 try:
     import RPi.GPIO as GPIO
@@ -19,9 +20,10 @@ def trigger_direct(pin,time_in_sec):
     else:
         print('Not running on a pi. The Relais on pin %i would have been triggered for %i seconds at %s' % (pin, time_in_sec, str(datetime.datetime.now())))
 
-def trigger_behind_MCP23017(address, pin, time_in_sec):
+def trigger_behind_MCP23017(pin, time_in_sec):
     if running_on_pi:
         from controller.Adafruit_MCP230xx import Adafruit_MCP230XX
+        address = int(settings.configuration.get('General Setup','MCP_Relais'),0)
         mcp = Adafruit_MCP230XX(address,16,1)
         mcp.config(pin, Adafruit_MCP230XX.OUTPUT)
         mcp.output(pin,0)
