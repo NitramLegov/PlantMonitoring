@@ -1,8 +1,10 @@
 from __future__ import print_function
 import time
 import datetime
+
 try:
     import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.BCM)
     running_on_pi = True
 except:
     running_on_pi = False

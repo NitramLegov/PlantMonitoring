@@ -49,6 +49,7 @@ echo 'First, we will update the apt-get database'
 sudo apt-get -qq update
 echo '----------------'
 echo 'Installing prerequisites for the Plantmonitoring Software: web.py'
+sudo apt-get -qq -y install python-pip
 sudo pip install web.py
 echo '----------------'
 echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
