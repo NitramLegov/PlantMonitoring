@@ -1,4 +1,5 @@
 #!/bin/sh
+
 enter_full_setting()
 {
 lua - "$1" "$2" <<EOF > "$2.bak"
