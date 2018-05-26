@@ -21,6 +21,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="controller\Adafruit_I2C.py" />
+    <Compile Include="controller\Adafruit_MCP230xx.py" />
+    <Compile Include="controller\settings.py" />
+    <Compile Include="controller\triggerRelais.py" />
+    <Compile Include="controller\__init__.py" />
     <Compile Include="Old_project_files\Adafruit_I2C.py" />
     <Compile Include="Old_project_files\Adafruit_MCP230xx.py" />
     <Compile Include="Old_project_files\Adafruit_PWM_Servo_Driver.py" />
@@ -31,12 +36,27 @@
     <Compile Include="Old_project_files\Servo_Example.py" />
     <Compile Include="Old_project_files\Setup.py" />
     <Compile Include="Plantmonitoring.py" />
+    <Compile Include="routes\index.py" />
+    <Compile Include="routes\settings.py" />
+    <Compile Include="routes\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="controller\" />
     <Folder Include="Old_project_files\" />
+    <Folder Include="routes\" />
+    <Folder Include="static\" />
+    <Folder Include="static\vendor\" />
+    <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Old_project_files\README.md" />
+    <Content Include="Plantmonitoring.conf" />
+    <Content Include="static\vendor\bootstrap.min.css" />
+    <Content Include="static\vendor\bootstrap.min.js" />
+    <Content Include="static\vendor\font-awesome.min.css" />
+    <Content Include="static\vendor\jquery.min.js" />
+    <Content Include="static\vendor\socket.io-1.4.5.js" />
+    <Content Include="views\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
