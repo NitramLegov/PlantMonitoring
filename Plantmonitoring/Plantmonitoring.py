@@ -39,6 +39,7 @@ def initialSetup():
             if running_on_pi:
                 GPIO.setup(pin[1], GPIO.OUT, initial=GPIO.HIGH)
                 GPIO.output(pin[1],GPIO.HIGH)
+                print('Pin %i set to high' % pin[1])
             else:
                 print('Not running on a pi. Pin %i would have been set to high' % pin[1])
     except:
@@ -49,6 +50,7 @@ def initialSetup():
             if running_on_pi:
                 GPIO.setup(pin[1], GPIO.OUT, initial=GPIO.LOW)
                 GPIO.output(pin[1],GPIO.LOW)
+                print('Pin %i set to low' % pin[1])
             else:
                 print('Not running on a pi. Pin %i would have been set to low' % pin[1])
     except:

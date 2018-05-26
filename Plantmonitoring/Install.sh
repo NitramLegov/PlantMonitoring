@@ -50,8 +50,8 @@ echo 'First, we will update the apt-get database'
 sudo apt-get -qq update
 echo '----------------'
 echo 'Installing prerequisites for the Plantmonitoring Software: web.py'
-sudo apt-get -qq -y install python-pip
-sudo pip install web.py
+sudo apt-get -qq -y install python-pip i2c-tools python-smbus
+sudo pip install web.py 
 echo '----------------'
 echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
 sudo raspi-config nonint do_i2c 0
@@ -63,7 +63,6 @@ sudo apt-get -qq -y install build-essential python-dev
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 (cd $DIR/Adafruit_Python_DHT && exec sudo python setup.py install) >> /dev/null
 echo '----------------'
-
 echo 'Registering as a service for systemctl'
 echo 'For this, we follow the instructions from https://www.raspberrypi.org/documentation/linux/usage/systemd.md'
 SERVICE_FILE="/etc/systemd/system/Plantmonitoring.service"

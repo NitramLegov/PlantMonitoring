@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Install.sh" />
-    <Content Include="Old_project_files\README.md" />
     <Content Include="Plantmonitoring.conf" />
     <Content Include="static\vendor\bootstrap.min.css" />
     <Content Include="static\vendor\bootstrap.min.js" />
