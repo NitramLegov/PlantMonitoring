@@ -87,9 +87,15 @@ echo 'You can check the output by using systemctl status Plantmonitoring.service
 echo '----------------'
 echo 'Lastly, let us Install Redis'
 #cd /../tmp
-#wget http://download.redis.io/redis-stable.tar.gz#tar xvzf redis-stable.tar.gz#cd redis-stable#make -s
+#wget http://download.redis.io/redis-stable.tar.gz
+#tar xvzf redis-stable.tar.gz
+#cd redis-stable
+#make -s
 #make test 
-#sudo make -s install#cd utils#sudo REDIS_PORT=6379 ./install_server.sh 
+#sudo make -s install
+#cd utils
+#sudo REDIS_PORT=6379 ./install_server.sh 
 sudo apt-get -qq install redis-server
 echo 'Redis Installation completed'
 echo '-------------------'
+echo 'It is recommended to reboot now.'
