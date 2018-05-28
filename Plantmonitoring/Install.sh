@@ -49,9 +49,9 @@ echo 'Please note that the initial setup requires an active internet connection.
 echo 'First, we will update the apt-get database'
 sudo apt-get -qq update
 echo '----------------'
-echo 'Installing prerequisites for the Plantmonitoring Software: web.py'
+echo 'Installing prerequisites for the Plantmonitoring Software: pip, i2c tools, python-smbus, web.py, redis-py'
 sudo apt-get -qq -y install python-pip i2c-tools python-smbus
-sudo pip install web.py 
+sudo pip install web.py redis
 echo '----------------'
 echo 'Activating needed settings using raspi-config: I2C, Camera and the default boot behaviour'
 sudo raspi-config nonint do_i2c 0
@@ -86,16 +86,22 @@ echo 'Plantmonitoring is now installed as Plantmonitoring.service in systemctl'
 echo 'You can check the output by using systemctl status Plantmonitoring.service'
 echo '----------------'
 echo 'Lastly, let us Install Redis'
-#cd /../tmp
-#wget http://download.redis.io/redis-stable.tar.gz
-#tar xvzf redis-stable.tar.gz
-#cd redis-stable
-#make -s
-#make test 
-#sudo make -s install
-#cd utils
-#sudo REDIS_PORT=6379 ./install_server.sh 
-sudo apt-get -qq install redis-server
+echo 'This will install reids with the standard Installation. Redis will be available on port 6379 afterwards.'
+cd /../tmp
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make -s
+make test 
+sudo make -s install
+
+sudo REDIS_PORT=6379 \
+REDIS_CONFIG_FILE=/etc/redis/6379.conf \
+REDIS_LOG_FILE=/var/log/6379.log \
+REDIS_DATA_DIR=/var/lib/redis/6379 \
+REDIS_EXECUTABLE=`command -v redis-server` ./utils/install_server.sh 
+
+#sudo apt-get -qq install redis-server
 echo 'Redis Installation completed'
 echo '-------------------'
 echo 'It is recommended to reboot now.'

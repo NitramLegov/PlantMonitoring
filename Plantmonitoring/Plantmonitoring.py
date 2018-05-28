@@ -5,6 +5,7 @@ from routes.settings import Settings
 import time
 import controller.settings as settings
 import json
+import redis
 
 try:
     import RPi.GPIO as GPIO

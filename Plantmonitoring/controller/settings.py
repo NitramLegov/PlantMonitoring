@@ -13,12 +13,16 @@ def defaultValues():
     configuration.set('Server','#Use 0.0.0.0 as host to listen to all IPv4 devices.')
     configuration.set('Server','#Use :: as host to listen to all IPv4 and IPv6 devices.')
     configuration.set('Server','PORT','8080')
-    configuration.set('Server','HOST','127.0.0.1')
+    configuration.set('Server','HOST','::')
     configuration.add_section('Initial Pins')
     configuration.set('Initial Pins','High', json.dumps([['Name1',23], ['Name2',24],['Name2',25],['Name2',8],['Name2',26]]))
     configuration.add_section('General Setup')
     configuration.set('General Setup','MCP_Relais', '0x24')
     configuration.set('General Setup','MCP_Sensor_Activation', '0x20')
+    configuration.add_section('Redis')
+    configuration.set('Redis','Port','6379')
+    configuration.set('Redis','Host','127.0.0.1')
+    configuration.set('Redis','Database','0')
     save()
 #Default Values
 #PIN: 23 Value: 1
@@ -30,9 +34,9 @@ def defaultValues():
 configuration = ConfigParser.SafeConfigParser(allow_no_value=True)
 
 try:
-    #with open(settings_file_name,'r') as config_file:
-    configuration.read(settings_file_name)
-    print('Configuration loaded successfully')
+    with open(settings_file_name,'r') as config_file:
+        configuration.read(config_file)
+        print('Configuration loaded successfully')
 except:
     defaultValues()
 
