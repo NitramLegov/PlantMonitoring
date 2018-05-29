@@ -2,6 +2,8 @@ from __future__ import print_function
 import web
 from routes.index import Index
 from routes.settings import Settings
+from routes.data import Data
+from routes.testdata import Testdata
 import time
 import controller.settings as settings
 import json
@@ -15,9 +17,13 @@ except:
     running_on_pi = False
 
 PossibleUrls = (
+                '/api/data/(.*)', 'Data',
+                '/api/system', 'System',
+                '/api/system/(.*)', 'System',
                 '/api/settings', 'Settings',
                 '/api/settings/(.*)/(.*)', 'Settings',
                 '/api/settings/(.*)', 'Settings',
+                '/test/generateData','Testdata',
                 '/favicon.ico', 'Favicon',
                 '/(.*)', 'Index',
                 '/', 'Index'

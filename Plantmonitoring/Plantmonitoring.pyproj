@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="controller\Adafruit_I2C.py" />
     <Compile Include="controller\Adafruit_MCP230xx.py" />
+    <Compile Include="controller\Database.py" />
     <Compile Include="controller\settings.py" />
     <Compile Include="controller\triggerRelais.py" />
     <Compile Include="controller\__init__.py" />
@@ -36,12 +37,27 @@
     <Compile Include="Old_project_files\Servo_Example.py" />
     <Compile Include="Old_project_files\Setup.py" />
     <Compile Include="Plantmonitoring.py" />
+    <Compile Include="routes\data.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.py" />
     <Compile Include="routes\settings.py" />
+    <Compile Include="routes\system.py" />
+    <Compile Include="routes\testdata.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\__init__.py" />
+    <Compile Include="temp\Setup.py" />
+    <Compile Include="temp\TestDataGenerator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="temp\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controller\" />
+    <Folder Include="temp\" />
     <Folder Include="Old_project_files\" />
     <Folder Include="routes\" />
     <Folder Include="static\" />
@@ -49,12 +65,17 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="controller\plant_helper.py">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Install.sh" />
     <Content Include="static\vendor\bootstrap.min.css" />
     <Content Include="static\vendor\bootstrap.min.js" />
     <Content Include="static\vendor\font-awesome.min.css" />
     <Content Include="static\vendor\jquery.min.js" />
     <Content Include="static\vendor\socket.io-1.4.5.js" />
+    <Content Include="views\systemControl.html" />
+    <Content Include="views\setup.html" />
     <Content Include="views\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

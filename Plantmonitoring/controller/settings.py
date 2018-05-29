@@ -23,6 +23,8 @@ def defaultValues():
     configuration.set('Redis','Port','6379')
     configuration.set('Redis','Host','127.0.0.1')
     configuration.set('Redis','Database','0')
+    configuration.add_section('SQLite')
+    configuration.set('SQLite','Database_file','Plantmonitoring.db')
     save()
 #Default Values
 #PIN: 23 Value: 1
@@ -34,10 +36,14 @@ def defaultValues():
 configuration = ConfigParser.SafeConfigParser(allow_no_value=True)
 
 try:
-    with open(settings_file_name,'r') as config_file:
-        configuration.read(config_file)
-        print('Configuration loaded successfully')
+    #with open(settings_file_name,'r') as config_file:
+    configuration.read(settings_file_name)
+    if configuration.sections() == []:
+        print('Loading default configuration values')
+        defaultValues()
+    print('Configuration loaded successfully')
 except:
+    print('Exception, loading default configuration values')
     defaultValues()
 
 def setValues(newSettings):
