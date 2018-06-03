@@ -16,7 +16,7 @@ class BaseModel(Model):
 
 class Garden(BaseModel):
     ID = PrimaryKeyField()
-    Name = CharField(null=True)
+    Name = CharField()
     NumberOfColumns = IntegerField()
     NumberOfRows = IntegerField()
 
@@ -27,7 +27,8 @@ class Plants(BaseModel):
     Name = CharField()
     WateringLogic = CharField()
     WateringTreshold = IntegerField()
-    LastWateringTime = TimeField()
+    WateringSeconds = IntegerField()
+#    LastWateringTime = TimeField(null=True)
     Garden = ForeignKeyField(Garden,to_field='ID')
 
 class SensorTypes(BaseModel):
