@@ -1,10 +1,12 @@
+import controller.Database
 import controller.Database as Database
 from controller.Database import *
 import peewee
 from peewee import *
 
 def dataGenerator():
-    Database.setup("Y")
+    controller.Database.setup("Y")
+    #Database.setup("Y")
     Garden1 = Garden()
     Garden1.Name = "Test Garden"
     Garden1.NumberOfColumns = 4

@@ -3,7 +3,6 @@ import controller.settings as settings
 import controller.Database
 import json
 from playhouse.shortcuts import model_to_dict, dict_to_model
-from playhouse.csv_loader import dump_csv
 
 class Data(object):
     """description of class"""
